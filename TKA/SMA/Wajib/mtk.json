@@ -1,0 +1,2105 @@
+{
+  "mata_pelajaran": "Matematika",
+  "jenjang": "SMA/MA/SMK/MAK/Sederajat",
+  "program": "Tes Kemampuan Akademik (TKA)",
+  "konsep_bimbingan": {
+    "nama": "3B",
+    "kepanjangan": "Belajar, Berlatih, Bertanding",
+    "deskripsi": {
+      "belajar": "Tahap memahami konsep dan materi dasar lewat penjelasan dan contoh terbimbing.",
+      "berlatih": "Tahap menguatkan pemahaman lewat soal bertingkat dari mudah ke sulit.",
+      "bertanding": "Tahap simulasi ujian dengan soal HOTS, batas waktu, dan evaluasi mandiri."
+    }
+  },
+  "sistem_ai_chat": {
+    "nama": "Tanya Tutor",
+    "deskripsi": "Chat bantuan di tiap soal. Tutor menyesuaikan gaya bimbingan dengan tahap 3B yang sedang aktif.",
+    "persona_ai": "Anda tutor matematika untuk siswa SMA. Sesuaikan gaya bahasa dengan tahap 3B. Jangan langsung beri jawaban di tahap Belajar dan Berlatih. Gunakan notasi matematika yang jelas dan bahasa yang wajar, tidak berlebihan.",
+    "aturan_umum": [
+      "Gunakan bahasa Indonesia yang wajar dan tidak berlebihan.",
+      "Gunakan notasi matematika yang jelas.",
+      "Tahap Belajar dan Berlatih: bimbing dulu, jangan langsung beri jawaban akhir.",
+      "Jika pertanyaan di luar konteks soal, arahkan kembali dengan singkat."
+    ]
+  },
+  "prompt_per_tahap": {
+    "belajar": [
+      {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep dasar yang diperlukan untuk menyelesaikan soal ini, tanpa memberi jawaban akhir."},
+      {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Rumus atau teorema apa yang relevan untuk soal ini? Jelaskan kapan dan mengapa dipakai."},
+      {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat apa yang harus saya kuasai sebelum mengerjakan soal ini? Urutkan dari dasar."},
+      {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri satu contoh serupa yang lebih sederhana beserta penyelesaian langkah demi langkah."},
+      {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi sederhana dari konsep soal ini dalam kehidupan sehari-hari."}
+    ],
+    "berlatih": [
+      {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk untuk langkah pertama soal ini. Jangan beri langkah selanjutnya."},
+      {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar? Jika salah, tunjukkan langkah yang keliru tanpa memberi jawaban akhir.", "butuh_input": true},
+      {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu saya dengan pertanyaan pemandu, bukan jawaban langsung.", "butuh_input": true},
+      {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara alternatif menyelesaikan soal ini? Bandingkan kelebihan dan kekurangannya."},
+      {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Apa kesalahan yang sering dilakukan siswa pada soal seperti ini? Bagaimana menghindarinya?"},
+      {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal latihan serupa dengan tingkat kesulitan sedikit lebih tinggi, beserta kuncinya."}
+    ],
+    "bertanding": [
+      {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap soal ini langkah demi langkah, termasuk alasan di setiap langkah."},
+      {"id": "T2", "label": "Strategi waktu", "prompt": "Berapa waktu ideal mengerjakan soal seperti ini? Bagaimana strategi cepatnya?"},
+      {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa setiap pilihan jawaban yang salah itu keliru. Jebakan apa yang diuji?"},
+      {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa (memahami, mengaplikasikan, atau bernalar)? Jelaskan alasannya."},
+      {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan soal ini dengan soal TKA tahun sebelumnya yang menguji konsep serupa. Apa pola yang bisa dipelajari?"},
+      {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan 1 variasi soal TKA dari konsep yang sama, beserta kunci jawabannya."},
+      {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah menjawab soal ini, konsep apa yang perlu diperkuat? Beri rencana belajar 3 hari."},
+      {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan soal ini seperti sedang mengajar di kelas, dengan tanya-jawab singkat."}
+    ]
+  },
+  "soal": [
+    {
+      "no_soal": 1,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Peluang Kejadian Majemuk",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait peluang suatu kejadian majemuk",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Sebuah hotel memiliki 30 kamar yang tersedia di lantai 5. Manajer operasional mencatat fasilitas kamar tersebut sebagai berikut. 18 kamar memiliki pemandangan ke arah laut. 10 kamar memiliki fasilitas tempat tidur Twin Bed. 6 kamar di antaranya adalah kamar dengan pemandangan laut yang juga memiliki tempat tidur Twin Bed. Sisanya adalah kamar standar yang tidak memiliki pemandangan laut maupun fasilitas Twin Bed. Jika saat ini semua kamar di lantai tersebut kosong dan resepsionis memilih satu kamar secara acak untuk tamu yang baru datang, berapakah peluang tamu tersebut mendapatkan kamar dengan pemandangan laut atau tempat tidur Twin Bed?",
+      "pilihan": [
+        {"label": "A", "teks": "1/5"},
+        {"label": "B", "teks": "2/5"},
+        {"label": "C", "teks": "11/15"},
+        {"label": "D", "teks": "3/5"},
+        {"label": "E", "teks": "4/5"}
+      ],
+      "pembahasan": "n(A) = 18, n(B) = 10, n(A ∩ B) = 6. n(A ∪ B) = 18 + 10 - 6 = 22. P(A ∪ B) = 22/30 = 11/15.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep peluang gabungan dua kejadian dengan konteks soal hotel ini, tanpa memberi jawaban akhir."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Rumus apa yang menghubungkan P(A ∪ B) dengan P(A), P(B), dan P(A ∩ B)? Kapan rumus ini dipakai?"},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat apa yang harus saya kuasai untuk soal peluang gabungan ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh peluang gabungan yang lebih sederhana (dadu atau kartu) beserta penyelesaiannya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi sederhana tentang gabungan dua kriteria dalam kehidupan sehari-hari."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: bagaimana mengidentifikasi A, B, dan A∩B dari soal hotel ini?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar? Jika salah, tunjukkan langkah yang keliru.", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu dengan pertanyaan pemandu.", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara alternatif menghitung peluang gabungan ini, misalnya dengan tabel kontingensi atau diagram Venn?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Apa kesalahan umum siswa saat menghitung P(A ∪ B)? Bagaimana menghindarinya?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal peluang gabungan serupa dengan konteks berbeda."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap soal hotel ini langkah demi langkah."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Berapa waktu ideal mengerjakan soal peluang gabungan seperti ini? Bagaimana strategi cepatnya?"},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, dan E keliru. Jebakan apa yang diuji?"},
+          {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa? Jelaskan alasannya."},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan soal ini dengan soal TKA peluang gabungan tahun sebelumnya."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan 1 variasi soal TKA peluang gabungan yang mungkin muncul beserta kuncinya."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah, konsep apa yang perlu diperkuat? Beri rencana belajar 3 hari."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan soal ini seperti mengajar di kelas dengan tanya-jawab singkat."}
+        ]
+      }
+    },
+    {
+      "no_soal": 2,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Peluang Sederhana",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait peluang suatu kejadian tunggal",
+      "bentuk_soal": "Pilihan Ganda Kompleks (PGK MCMA)",
+      "kunci": ["Pernyataan 1", "Pernyataan 4"],
+      "tahap_3b": "bertanding",
+      "soal": "Dalam sebuah konferensi teknologi, dipaparkan sejumlah data bahwa dalam satu kelompok data yaitu setiap 10 gadget ramah lingkungan yang diproduksi oleh perusahaan X, rata-rata jenisnya adalah sebagai berikut: 4 unit ponsel pintar (smartphone); 3 unit jam tangan pintar (smartwatch); 2 unit komputer tablet; dan sisanya adalah unit pelacak lokasi (smart tag). Seorang petugas quality control memilih 1 unit gadget secara acak dari kelompok data tersebut untuk diuji efisiensi dayanya. Mana saja pernyataan-pernyataan berikut yang benar terkait nilai peluang terpilihnya jenis gadget tersebut?",
+      "pernyataan": [
+        {"no": 1, "teks": "Peluang terpilihnya ponsel pintar adalah 40%.", "benar": true},
+        {"no": 2, "teks": "Peluang terpilihnya gadget bukan komputer tablet adalah 0,2.", "benar": false},
+        {"no": 3, "teks": "Peluang terpilihnya unit pelacak lokasi adalah 1/10.", "benar": true},
+        {"no": 4, "teks": "Peluang terpilihnya gadget bukan jam tangan pintar adalah 70%.", "benar": true}
+      ],
+      "pembahasan": "Smartphone 4/10=40%; Bukan tablet 8/10=80%≠0,2; Smart tag 1/10; Bukan smartwatch 7/10=70%.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep peluang kejadian tunggal dan komplemen dengan konteks gadget ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus P(A) dan P(A') serta kapan digunakan."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat apa yang dibutuhkan untuk soal peluang tunggal dan komplemen ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh peluang tunggal sederhana dengan bola berwarna beserta langkahnya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi peluang dan komplemen dengan situasi sehari-hari, misalnya memilih menu makan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: bagaimana menentukan ruang sampel dan frekuensi tiap gadget?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Saya pilih pernyataan [X]. Apakah benar? Jelaskan tanpa memberi semua jawaban.", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu dengan pertanyaan pemandu.", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara cepat memeriksa peluang komplemen tanpa menghitung satu-satu?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Apa kesalahan umum siswa saat menghitung peluang komplemen?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal peluang tunggal dan komplemen dengan konteks baru."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap keempat pernyataan gadget ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menjawab PGK MCMA peluang dalam waktu terbatas?"},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan 2 keliru meskipun terlihat masuk akal."},
+          {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa? Jelaskan alasannya."},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan dengan soal TKA peluang tunggal tahun lalu. Apa pola umumnya?"},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan variasi soal peluang tunggal PGK MCMA yang mungkin muncul."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah pada pernyataan komplemen, konsep apa yang perlu diperkuat?"},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan soal ini secara interaktif seperti sesi tanya-jawab di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 3,
+      "elemen": "Aljabar",
+      "sub_elemen": "Persamaan dan Pertidaksamaan Linear",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait sistem persamaan linear multivariabel",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Harga 3 buah buku dan 2 buah penggaris Rp18.000,00. Jika harga sebuah buku Rp1.000,00 lebih mahal dari sebuah penggaris, harga 2 buah buku dan 5 buah penggaris adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "Rp19.000,00"},
+        {"label": "B", "teks": "Rp23.000,00"},
+        {"label": "C", "teks": "Rp25.000,00"},
+        {"label": "D", "teks": "Rp27.000,00"},
+        {"label": "E", "teks": "Rp30.000,00"}
+      ],
+      "pembahasan": "b = p + 1.000. 3(p + 1.000) + 2p = 18.000. 5p = 15.000. p = 3.000, b = 4.000. 2(4.000) + 5(3.000) = Rp23.000,00.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep SPLDV dan cara mengubah soal cerita menjadi dua persamaan, dengan konteks buku dan penggaris ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan metode substitusi dan eliminasi dalam SPLDV beserta kapan dipakai."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat SPLDV apa yang harus saya kuasai?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh SPLDV sederhana tentang harga dua barang dan penyelesaiannya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi SPLDV dengan situasi belanja di kantin sekolah."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: bagaimana menuliskan dua persamaan dari soal buku dan penggaris ini?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar? Tunjukkan kesalahan jika ada.", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu dengan pertanyaan pemandu.", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah bisa diselesaikan dengan metode grafik? Bandingkan dengan substitusi."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum siswa saat menyelesaikan SPLDV soal cerita?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal SPLDV kontekstual tambahan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap SPLDV soal buku dan penggaris ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menyelesaikan SPLDV kontekstual dalam ujian?"},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru. Jebakan hitungnya apa?"},
+          {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa? Jelaskan."},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan dengan soal TKA SPLDV tahun sebelumnya."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan variasi soal SPLDV TKA yang mungkin muncul."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah, konsep apa yang perlu diperkuat? Beri rencana 3 hari."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan soal ini interaktif seperti mengajar di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 4,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data (Aplikasi)",
+      "kompetensi": "Data dan Peluang",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Pemerintah Provinsi Jingga mendata banyaknya pengusaha yang ada di Provinsi Jingga. Terdapat 7 kota di Provinsi Jingga. Berikut disajikan data banyak pengusaha pada masing-masing kota di Provinsi Jingga pada tahun 2026. Informasi mengenai banyaknya pengusaha di Kota E hilang, namun Pemerintah Provinsi Jingga sudah mengetahui jumlah total pengusaha di Provinsi Jingga sebanyak 25.000 orang. Berdasarkan informasi tersebut, banyak pengusaha di Kota E adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "500 orang"},
+        {"label": "B", "teks": "1.500 orang"},
+        {"label": "C", "teks": "2.000 orang"},
+        {"label": "D", "teks": "2.500 orang"},
+        {"label": "E", "teks": "3.000 orang"}
+      ],
+      "pembahasan": "Total tanpa E = 23.500. Kota E = 25.000 - 23.500 = 1.500 orang.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep membaca data tabel dan mencari nilai yang hilang dari total."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan hubungan jumlah total = jumlah bagian-bagian."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat apa untuk soal data tabel seperti ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh tabel data dengan satu sel hilang dan cara mencarinya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi data tabel dengan situasi uang jajan mingguan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana mencari nilai Kota E dari total Provinsi Jingga?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu dengan pertanyaan pemandu.", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara lain memeriksa jawaban dengan penjumlahan ulang?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum siswa saat menghitung data hilang dari tabel?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal tabel data dengan nilai hilang."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap soal data Provinsi Jingga ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menyelesaikan soal data tabel dengan nilai hilang?"},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan dengan soal data TKA tahun sebelumnya."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan variasi soal data tabel TKA."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah, konsep apa yang perlu diperkuat?"},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti sesi kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 5,
+      "elemen": "Aljabar",
+      "sub_elemen": "Persamaan dan Pertidaksamaan Linear",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait sistem pertidaksamaan linear multivariabel",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Perhatikan gambar berikut. Daerah yang memenuhi sistem pertidaksamaan linear adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "I"},
+        {"label": "B", "teks": "II"},
+        {"label": "C", "teks": "III"},
+        {"label": "D", "teks": "IV"},
+        {"label": "E", "teks": "V"}
+      ],
+      "pembahasan": "Memerlukan gambar daerah penyelesaian.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan cara menentukan daerah himpunan penyelesaian sistem pertidaksamaan linear dua variabel."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menentukan tanda pertidaksamaan dengan uji titik."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk menggambar daerah pertidaksamaan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh sederhana menggambar daerah penyelesaian 2 pertidaksamaan."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi daerah penyelesaian dengan area jangkauan sinyal WiFi."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama menggambar daerah penyelesaian."},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Saya pilih daerah [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara cepat mengidentifikasi daerah tanpa menggambar satu-satu?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum siswa saat menentukan daerah penyelesaian?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal daerah penyelesaian pertidaksamaan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal daerah penyelesaian ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menjawab soal daerah penyelesaian."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa daerah lain keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal daerah penyelesaian di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal ini."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif."}
+        ]
+      }
+    },
+    {
+      "no_soal": 6,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret geometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "E",
+      "tahap_3b": "bertanding",
+      "soal": "Rina mulai berinvestasi melalui aplikasi Bobin. Terdapat beberapa pilihan produk investasi yang ditawarkan di aplikasi Bobin. Rina memilih produk investasi tipe B2026 karena pada setiap akhir tahun, bunga yang diperoleh langsung ditambahkan ke tabungan. Rina membeli produk investasi B2026 sebesar Rp7.000.000,00 dan berencana menyimpannya sampai jatuh tempo (3 tahun) dengan bunga 10% per tahun. Berapakah uang yang diperoleh Rina setelah jatuh tempo?",
+      "pilihan": [
+        {"label": "A", "teks": "Rp8.470.000,00"},
+        {"label": "B", "teks": "Rp9.100.000,00"},
+        {"label": "C", "teks": "Rp9.240.000,00"},
+        {"label": "D", "teks": "Rp9.261.000,00"},
+        {"label": "E", "teks": "Rp9.317.000,00"}
+      ],
+      "pembahasan": "M = 7.000.000(1 + 0,10)³ = 7.000.000(1,331) = Rp9.317.000,00.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep bunga majemuk dan bedanya dengan bunga tunggal, dengan konteks investasi Rina ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus bunga majemuk M = M₀(1+i)ⁿ dan kapan dipakai."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal bunga majemuk ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh bunga majemuk 1 tahun yang lebih sederhana dengan langkah."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi bunga majemuk dengan situasi menabung di bank."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: apa nilai M₀, i, dan n pada soal Rina ini?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar? Tunjukkan kesalahan jika ada.", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi]. Bantu dengan pertanyaan pemandu.", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah bisa dihitung tahun per tahun? Bandingkan dengan rumus langsung."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum siswa saat menghitung bunga majemuk?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal bunga majemuk dengan konteks berbeda."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Berikan pembahasan lengkap soal investasi Rina ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menghitung bunga majemuk di ujian?"},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, D keliru. Jebakan bunga tunggal vs majemuk?"},
+          {"id": "T4", "label": "Level soal", "prompt": "Soal ini menguji level kognitif apa?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Bandingkan dengan soal TKA bunga majemuk tahun sebelumnya."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksikan variasi soal bunga majemuk TKA."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Jika saya salah, konsep apa yang perlu diperkuat?"},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan soal ini interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 7,
+      "elemen": "Aljabar",
+      "sub_elemen": "Fungsi",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait invers fungsi dan representasinya",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Diketahui fungsi f(x) = (2x + 3)/(x - 1), dengan x ≠ 1. Jika f⁻¹(x) adalah invers dari fungsi f(x), nilai dari f⁻¹(3) = ....",
+      "pilihan": [
+        {"label": "A", "teks": "4"},
+        {"label": "B", "teks": "6"},
+        {"label": "C", "teks": "8"},
+        {"label": "D", "teks": "10"},
+        {"label": "E", "teks": "12"}
+      ],
+      "pembahasan": "f⁻¹(x) = (x + 3)/(x - 2). f⁻¹(3) = (3 + 3)/(3 - 2) = 6.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep invers fungsi dan cara mencarinya, dengan contoh fungsi rasional ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan langkah umum mencari f⁻¹(x) dari fungsi rasional."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk mencari invers fungsi rasional?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh mencari invers fungsi linear sederhana dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi invers fungsi dengan situasi konversi satuan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: bagaimana memulai mencari invers dari f(x) = (2x+3)/(x-1)?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah langsung substitusi f⁻¹(3) = x artinya f(x) = 3? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat mencari invers fungsi rasional?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal invers fungsi rasional."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal invers fungsi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menjawab soal invers fungsi."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal invers fungsi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal invers fungsi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 8,
+      "elemen": "Aljabar",
+      "sub_elemen": "Fungsi",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait fungsi komposisi dan representasinya",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "berlatih",
+      "soal": "Fungsi f : R → R dan g : R → R. Jika g(x) = x - 1 dan (f ∘ g)(x) = x³ - 4x, nilai dari f(2) = ....",
+      "pilihan": [
+        {"label": "A", "teks": "9"},
+        {"label": "B", "teks": "13"},
+        {"label": "C", "teks": "15"},
+        {"label": "D", "teks": "17"},
+        {"label": "E", "teks": "25"}
+      ],
+      "pembahasan": "f(t) = t³ + 3t² - t - 3. f(2) = 8 + 12 - 2 - 3 = 15.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep fungsi komposisi (f∘g)(x) dengan contoh sederhana."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara mencari f(x) jika g(x) dan (f∘g)(x) diketahui, dengan substitusi variabel."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk fungsi komposisi?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh komposisi fungsi linear sederhana beserta langkahnya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi fungsi komposisi dengan dua proses berurutan, misalnya mesin produksi."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk langkah pertama: bagaimana mencari f(x) jika g(x) = x-1 dan (f∘g)(x) = x³-4x?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah langsung substitusi x = 3 agar g(3) = 2? Bandingkan dengan cara umum."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat mencari f(x) dari komposisi?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal fungsi komposisi."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal komposisi fungsi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat menjawab soal komposisi fungsi."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal komposisi fungsi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal komposisi fungsi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 9,
+      "elemen": "Bilangan",
+      "sub_elemen": "Bilangan Real",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait operasi hitung bilangan beserta sifat-sifatnya",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Seorang teknisi di bidang energi menghitung konsumsi energi sebuah alat listrik. Diketahui tegangan listrik sebesar V volt, arus listrik sebesar I ampere, dan waktu pemakaian selama t detik. Energi listrik dirumuskan dengan E = V × I × t. Namun, karena adanya rugi sistem sebesar 10%, energi bersih yang dihasilkan menjadi E_bersih = 0,9 × E. Maka energi bersih sama dengan ...",
+      "pilihan": [
+        {"label": "A", "teks": "0,9 VIt"},
+        {"label": "B", "teks": "0,8 VIt"},
+        {"label": "C", "teks": "0,9 VIt"},
+        {"label": "D", "teks": "1,1 VIt"},
+        {"label": "E", "teks": "1,2 VIt"}
+      ],
+      "pembahasan": "E_bersih = 0,9 × V × I × t = 0,9 VIt.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep rugi sistem dalam perhitungan energi listrik dengan konteks teknisi ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus E = VIt dan bagaimana pengaruh rugi 10% pada rumus."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal energi listrik ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh perhitungan energi tanpa rugi sistem dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi rugi sistem dengan situasi belanja kena diskon atau potongan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menerjemahkan rugi 10% menjadi faktor pengali?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah bisa ditulis sebagai E - 10%E? Bandingkan dengan 0,9E."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung persentase rugi?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal energi listrik dengan rugi sistem berbeda."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal energi listrik ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal operasi bilangan berkonteks fisika."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal bilangan kontekstual di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal operasi bilangan kontekstual."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 10,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": [3, 4],
+      "tahap_3b": "bertanding",
+      "soal": "Sebuah piring besar akan ditata potongan buah dengan susunan melingkar seperti pada gambar berikut. Tatanan potongan buah tersebut belum selesai dan akan dilanjutkan. Tentukan manakah banyak potongan buah yang mungkin pada susunan berikutnya? Pilihlah semua jawaban yang benar!",
+      "pilihan": [
+        {"label": "A", "teks": "20 potongan buah"},
+        {"label": "B", "teks": "24 potongan buah"},
+        {"label": "C", "teks": "32 potongan buah"},
+        {"label": "D", "teks": "64 potongan buah"}
+      ],
+      "pembahasan": "Memerlukan gambar pola susunan.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep pola bilangan pada susunan melingkar."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menentukan pola barisan dari susunan gambar."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal pola bilangan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh pola bilangan sederhana dari susunan gambar."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi pola bilangan dengan susunan kursi atau ubin."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menemukan pola dari susunan yang terlihat?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Saya pilih [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada beberapa pola yang mungkin? Bagaimana memilihnya?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan pola bilangan dari gambar?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal pola bilangan dari susunan gambar."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal pola susunan buah ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal pola bilangan bergambar."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan lain keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal barisan bergambar di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal pola bilangan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 11,
+      "elemen": "Bilangan",
+      "sub_elemen": "Bilangan Real",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait jenis dan sifat bilangan",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Bentuk rasional dari 6/(√5 + √2) adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "√5 - √2"},
+        {"label": "B", "teks": "2(√5 - √2)"},
+        {"label": "C", "teks": "3(√5 - √2)"},
+        {"label": "D", "teks": "2(√5 + √2)"},
+        {"label": "E", "teks": "3(√5 + √2)"}
+      ],
+      "pembahasan": "6/(√5 + √2) × (√5 - √2)/(√5 - √2) = 6(√5 - √2)/3 = 2(√5 - √2).",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep merasionalkan penyebut bentuk akar dengan konjugat."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan kenapa (a+b)(a-b) = a² - b² membantu menghilangkan akar di penyebut."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat merasionalkan penyebut?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh merasionalkan 1/√2 dulu, lalu 1/(√3+1)."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi konjugat dengan situasi menyederhanakan bentuk."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: apa konjugat dari (√5 + √2)?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah ada cara lain menyederhanakan bentuk ini?"},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat merasionalkan penyebut?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal merasionalkan penyebut."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal merasionalkan penyebut ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat merasionalkan penyebut."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal merasionalkan penyebut di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal merasionalkan penyebut."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 12,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret geometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "berlatih",
+      "soal": "Seorang peneliti melakukan pengamatan terhadap bakteri tertentu. Setiap hari bakteri membelah diri menjadi dua. Pada awal pengamatan terdapat 2 bakteri. Jika setiap 2 hari 1/4 dari jumlah bakteri mati, banyaknya bakteri setelah tiga hari adalah....",
+      "pilihan": [
+        {"label": "A", "teks": "48 bakteri"},
+        {"label": "B", "teks": "64 bakteri"},
+        {"label": "C", "teks": "96 bakteri"},
+        {"label": "D", "teks": "128 bakteri"},
+        {"label": "E", "teks": "192 bakteri"}
+      ],
+      "pembahasan": "Perlu pengecekan ulang terhadap urutan pembelahan dan kematian.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep pertumbuhan dan peluruhan pada populasi bakteri."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus barisan geometri untuk pembelahan bakteri."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal pertumbuhan bakteri?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh pembelahan bakteri tanpa kematian dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi pertumbuhan populasi dengan perkembangbiakan tanaman."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung populasi hari per hari?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Apakah bisa dihitung dengan mengalikan faktor per hari? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menggabungkan pembelahan dan kematian?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal pertumbuhan dan peluruhan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal bakteri ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal pertumbuhan bakteri."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal pertumbuhan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal pertumbuhan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 13,
+      "elemen": "Aljabar",
+      "sub_elemen": "Fungsi",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait domain, kodomain, range, dan representasi fungsi linear, kuadrat, dan rasional",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": ["2 jam", "3 jam", "4 jam"],
+      "tahap_3b": "bertanding",
+      "soal": "Proses pelumasan pada mesin merupakan hal penting yang harus dilakukan untuk menjaga performa kerja mesin. Kekentalan pelumas akan menurun seiring bertambahnya waktu operasi mesin. Hubungan antara waktu operasi t (jam) dan tingkat kekentalan pelumas K dapat dinyatakan oleh fungsi K(t) = 100 - 15t. Adapun untuk keperluan pemeliharaan mesin, nilai kekentalan tersebut dapat dikategorikan menjadi tiga interval berikut: K > 70 (Tinggi), 40 ≤ K ≤ 70 (Sedang), K < 40 (Rendah). Setelah mesin beroperasi berapa lamakah kekentalan pelumas pada mesin tersebut masuk pada indikator sedang?",
+      "pilihan": [
+        {"label": "A", "teks": "1 jam"},
+        {"label": "B", "teks": "2 jam"},
+        {"label": "C", "teks": "3 jam"},
+        {"label": "D", "teks": "4 jam"}
+      ],
+      "pembahasan": "40 ≤ 100 - 15t ≤ 70. 2 ≤ t ≤ 4. Jadi t = 2, 3, 4 jam.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep fungsi linear dan cara membaca rentang nilai dari fungsi K(t)."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menyelesaikan pertidaksamaan 40 ≤ K(t) ≤ 70."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal interval fungsi linear?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh menentukan interval nilai dari fungsi linear sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi penurunan kekentalan dengan suhu air yang mendingin."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menuliskan syarat 'sedang' sebagai pertidaksamaan?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dicoba substitusi t = 1, 2, 3, 4 untuk memeriksa? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menyelesaikan pertidaksamaan fungsi?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal interval fungsi linear kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kekentalan pelumas ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal interval fungsi."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan 1 jam keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal interval fungsi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal interval fungsi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 14,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Pengukuran",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait volume dan luas permukaan bangun ruang",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "A",
+      "tahap_3b": "bertanding",
+      "soal": "Dari selembar karton berbentuk persegi yang berukuran sisi 30 cm akan dibuat kotak tanpa tutup, dengan cara menggunting empat persegi di setiap pojok karton. Volume kotak terbesar yang dapat dibuat adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "2.000 cm³"},
+        {"label": "B", "teks": "3.000 cm³"},
+        {"label": "C", "teks": "4.000 cm³"},
+        {"label": "D", "teks": "5.000 cm³"},
+        {"label": "E", "teks": "6.000 cm³"}
+      ],
+      "pembahasan": "V(x) = x(30 - 2x)². V'(x) = 0 → x = 5. V(5) = 5(20)² = 2.000 cm³.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep volume kotak tanpa tutup yang dibuat dari karton persegi."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus V = panjang × lebar × tinggi untuk kotak ini."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal optimasi volume kotak?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh volume kotak dari karton kecil dengan angka sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi pembuatan kotak dari kertas kado."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menuliskan volume sebagai fungsi dari sisi guntingan x?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dicoba substitusi beberapa nilai x untuk menemukan maksimum? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat mencari volume maksimum?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal optimasi volume kotak."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal volume kotak ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal optimasi volume."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan B, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal optimasi volume di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal optimasi volume."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 15,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Kesebangunan",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait kesebangunan atau kekongruenan bangun datar",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "D",
+      "tahap_3b": "berlatih",
+      "soal": "Perhatikan desain rak buku berikut! Manakah perbandingan yang sama dengan ...?",
+      "pilihan": [
+        {"label": "A", "teks": "1 : 2"},
+        {"label": "B", "teks": "2 : 3"},
+        {"label": "C", "teks": "3 : 4"},
+        {"label": "D", "teks": "4 : 5"},
+        {"label": "E", "teks": "5 : 6"}
+      ],
+      "pembahasan": "Memerlukan gambar desain rak buku.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep kesebangunan bangun datar dengan contoh sederhana."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan syarat dua bangun sebangun dan perbandingan sisi-sisinya."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal kesebangunan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh kesebangunan dua segitiga sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi kesebangunan dengan foto yang diperbesar."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menemukan perbandingan sisi dari gambar rak?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibalik perbandingannya? Jelaskan kapan berlaku."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan kesebangunan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal kesebangunan kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kesebangunan rak ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal kesebangunan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan lain keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal kesebangunan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal kesebangunan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 16,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret aritmetika",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Seorang teknisi sedang menyambung beberapa pipa untuk membuat saluran air lurus. Setiap pipa yang disambungkan tidak menambah panjang penuh, karena sebagian ujung pipa masuk ke dalam sambungan pipa sebelumnya sehingga panjang saluran pipa mengalami penambahan tetap. Berapa panjang pipa saluran air jika terdapat 8 pipa yang tersambung?",
+      "pilihan": [
+        {"label": "A", "teks": "3.200 cm"},
+        {"label": "B", "teks": "3.170 cm"},
+        {"label": "C", "teks": "3.165 cm"},
+        {"label": "D", "teks": "3.100 cm"},
+        {"label": "E", "teks": "2.770 cm"}
+      ],
+      "pembahasan": "Memerlukan gambar panjang pipa.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep barisan aritmetika pada penyambungan pipa."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus Un = a + (n-1)b untuk soal pipa ini."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal barisan aritmetika?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh barisan aritmetika sederhana dengan angka kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi penyambungan pipa dengan menyusun kursi."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan beda (b) dari data panjang pipa?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung dengan menjumlahkan bertahap? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan beda barisan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal barisan aritmetika kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal pipa ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal barisan aritmetika kontekstual."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal barisan aritmetika di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal barisan aritmetika."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 17,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret aritmetika",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Salah", "Salah", "Benar"],
+      "tahap_3b": "bertanding",
+      "soal": "Pak Budi ingin membuka cabang baru kafe dalam waktu 12 bulan. Modal awal Rp50.000.000,00. Total dana dibutuhkan Rp200.000.000,00. Tabungan awal Rp5.000.000,00, bertambah Rp1.500.000,00 setiap bulan. Pada bulan ke-5 dan ke-9, mengeluarkan Rp5.000.000,00. Mulai bulan ke-7, kenaikan tabungan berkurang 20% dari kenaikan awal. Tentukan benar atau salah pada setiap pernyataan berikut!",
+      "pernyataan": [
+        {"no": "A", "teks": "Dengan kendala yang ada, Pak Budi tetap dapat membuka cabang baru.", "benar": false},
+        {"no": "B", "teks": "Pak Budi dapat membuka cabang baru dan membayar semua pengeluaran tak terduga jika tidak ada persaingan usaha.", "benar": false},
+        {"no": "C", "teks": "Dengan meningkatkan jumlah tabungan secara tetap yaitu menjadi selalu bertambah sebesar Rp1.700.000,00 per bulan maka Pak Budi dapat membuka cabang baru dan membayar semua pengeluaran tak terduganya.", "benar": true}
+      ],
+      "pembahasan": "Perlu analisis menyeluruh terhadap barisan dan deret.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep deret aritmetika dan pengaruh perubahan kenaikan pada soal Pak Budi."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus jumlah deret aritmetika Sn dan cara menghitung total tabungan 12 bulan."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal perencanaan keuangan ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh deret aritmetika sederhana tanpa kendala dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi menabung dengan target dan pengeluaran tak terduga."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung total tabungan 12 bulan dengan kendala?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Saya jawab [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung per bulan lalu dijumlahkan? Bandingkan dengan rumus."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung deret dengan kendala?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal deret aritmetika kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal Pak Budi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal PGK Kategori deret."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan A dan B salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal deret kontekstual di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal deret kontekstual."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 18,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Luas Permukaan Bangun Ruang",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait volume dan luas permukaan bangun ruang",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Seorang desainer percetakan digital diminta membuat kemasan souvenir berikut yang akan dicetak menggunakan kertas laminasi. Kemasan souvenir tersebut harus didesain pola bentuk (jaring-jaring) yang belum dirakit terlebih dahulu. Desainer bisa memodifikasi pola kemasan souvenir yang belum dirakit agar bisa dicetak tidak lebih dari 1 kertas untuk pola yang sama. Satu pola kemasan utuh yang belum dirakit hanya boleh dibuat posisi horizontal atau vertikal (tidak boleh diagonal). Tersedia pilihan kertas laminasi: A3 (29,7 × 42) Rp6.000, A3+ (32,9 × 48,3) Rp8.000, Plano (61 × 86) Rp15.000. Dengan anggaran maksimal Rp1.200.000,00 berapakah paling banyak kotak souvenir yang bisa dibuat?",
+      "pilihan": [
+        {"label": "A", "teks": "150 kotak kemasan"},
+        {"label": "B", "teks": "160 kotak kemasan"},
+        {"label": "C", "teks": "200 kotak kemasan"},
+        {"label": "D", "teks": "300 kotak kemasan"},
+        {"label": "E", "teks": "400 kotak kemasan"}
+      ],
+      "pembahasan": "Memerlukan analisis efisiensi kertas dan anggaran.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep jaring-jaring bangun ruang dan efisiensi pemotongan kertas."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menghitung banyak pola per lembar kertas."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal efisiensi kertas?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh sederhana memotong pola dari kertas kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi efisiensi bahan dengan memotong kain."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan berapa pola yang muat di tiap kertas?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibandingkan biaya per kotak tiap jenis kertas? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung efisiensi bahan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal efisiensi bahan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kemasan souvenir ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal efisiensi bahan dan anggaran."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal efisiensi bahan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal efisiensi bahan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 19,
+      "elemen": "Trigonometri",
+      "sub_elemen": "Perbandingan Trigonometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait perbandingan trigonometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "D",
+      "tahap_3b": "berlatih",
+      "soal": "Diketahui sin A = 3/5, A adalah sudut tumpul. Nilai cos A = ....",
+      "pilihan": [
+        {"label": "A", "teks": "3/5"},
+        {"label": "B", "teks": "4/5"},
+        {"label": "C", "teks": "-3/5"},
+        {"label": "D", "teks": "-4/5"},
+        {"label": "E", "teks": "-5/4"}
+      ],
+      "pembahasan": "cos² A = 1 - 9/25 = 16/25. cos A = ±4/5. Karena A tumpul, cos A = -4/5.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep perbandingan trigonometri di kuadran II (sudut tumpul)."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan identitas sin² A + cos² A = 1 dan tanda cos di kuadran II."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat trigonometri untuk soal ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh mencari cos jika sin diketahui di kuadran I dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi sudut tumpul dengan arah bayangan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana mencari cos A dari sin A = 3/5?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah digambar di segitiga bantu? Jelaskan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan tanda trigonometri di kuadran II?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal trigonometri di kuadran II."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal sin A = 3/5 ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal trigonometri kuadran."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal trigonometri kuadran di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal trigonometri kuadran."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 20,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait penyajian data dalam bentuk diagram batang, diagram garis, diagram lingkaran, grafik, tabel, dan bentuk visual",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "E",
+      "tahap_3b": "berlatih",
+      "soal": "Diagram batang berikut menunjukkan produksi pakaian yang dikelola Bu Rahmi selama tahun 2020 dari bulan Januari sampai bulan Desember. Peningkatan tertinggi jumlah produksi pakaian Bu Rahmi terjadi pada bulan ....",
+      "pilihan": [
+        {"label": "A", "teks": "April"},
+        {"label": "B", "teks": "Juni"},
+        {"label": "C", "teks": "Juli"},
+        {"label": "D", "teks": "September"},
+        {"label": "E", "teks": "November"}
+      ],
+      "pembahasan": "Memerlukan diagram batang.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan cara membaca diagram batang dan membandingkan tinggi batang antar bulan."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menghitung selisih produksi antar bulan berurutan."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk membaca diagram batang?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh diagram batang sederhana dan cara membaca selisihnya."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi diagram batang dengan tinggi tanaman yang diukur tiap minggu."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana membandingkan selisih antar batang?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibuat tabel selisih dulu? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat membaca diagram batang?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal membaca diagram batang."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal diagram produksi Bu Rahmi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat membaca diagram."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, D keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal diagram batang di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal diagram batang."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 21,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret geometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "E",
+      "tahap_3b": "bertanding",
+      "soal": "Analisis Pembebanan Struktur Jembatan. Dalam proyek pembangunan jembatan layang, tim insinyur struktur melakukan uji beban bertahap pada rangkaian balok penyangga (girder). Pada tiga titik tumpuan pertama, beban yang diaplikasikan secara berturut-turut adalah 500 kg, 1.000 kg, 2.000 kg. Berdasarkan pola berat beban yang diaplikasikan tersebut, beban pada titik tumpuan ke-4, 5, dan 6 berturut-turut adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "3.000, 4.000, 5.000"},
+        {"label": "B", "teks": "3.000, 6.000, 12.000"},
+        {"label": "C", "teks": "4.000, 6.000, 8.000"},
+        {"label": "D", "teks": "4.000, 6.000, 12.000"},
+        {"label": "E", "teks": "4.000, 8.000, 16.000"}
+      ],
+      "pembahasan": "Pola: 500, 1000, 2000, 4000, 8000, 16000 (dikali 2).",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep barisan geometri dan cara mengenali pola dikali tetap."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus Un = a × r^(n-1) untuk barisan geometri."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal barisan geometri?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh barisan geometri sederhana dengan angka kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi barisan geometri dengan pertumbuhan tabungan berbunga."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan rasio (r) dari 500, 1000, 2000?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dilanjutkan manual dari 2000 × 2? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan rasio barisan geometri?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal barisan geometri kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal uji beban jembatan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal barisan geometri."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, D keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal barisan geometri di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal barisan geometri."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 22,
+      "elemen": "Aljabar",
+      "sub_elemen": "Persamaan dan Pertidaksamaan Linear",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait sistem persamaan linear multivariabel",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "berlatih",
+      "soal": "Toko Jaya menjual alat tulis sekolah. Tiga murid SMK Merdeka yaitu Maya, Sella, dan Elang membeli alat tulis di Toko Jaya dengan rincian sebagai berikut. Apabila Nurul, murid dari sekolah yang sama ingin membeli ketiga alat tulis tersebut masing-masing 1 buah, maka banyaknya uang yang harus dibayarkan oleh Nurul adalah ...",
+      "pilihan": [
+        {"label": "A", "teks": "Rp9.000,00"},
+        {"label": "B", "teks": "Rp10.000,00"},
+        {"label": "C", "teks": "Rp10.500,00"},
+        {"label": "D", "teks": "Rp11.000,00"},
+        {"label": "E", "teks": "Rp12.000,00"}
+      ],
+      "pembahasan": "Memerlukan tabel rincian pembelian.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep SPLTV (tiga variabel) dengan konteks pembelian alat tulis."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan metode eliminasi bertahap untuk SPLTV."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk SPLTV?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh SPLTV sederhana dengan angka kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi SPLTV dengan pembelian di kantin dengan tiga jenis makanan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menyusun tiga persamaan dari rincian pembelian?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dikombinasikan persamaan dengan eliminasi atau substitusi? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menyelesaikan SPLTV?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal SPLTV kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal Toko Jaya ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal SPLTV."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal SPLTV di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal SPLTV."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 23,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Keliling dan Luas Bangun Datar",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait keliling dan luas bangun datar",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "D",
+      "tahap_3b": "bertanding",
+      "soal": "UMKM mendapatkan pesanan membuat alas piring untuk di meja makan seperti gambar berikut. Ukuran diameter alas piring yang dibuat adalah 35 cm. Agar tampilan menjadi lebih menarik, di sekeliling alas tersebut akan dihiasi dengan pita berwarna emas. Jika harga satu meter pita emas Rp5.000,00 dan UMKM tersebut akan memproduksi sebanyak 180 buah, biaya yang dibutuhkan untuk membeli pita emas adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "Rp6.930.000,00"},
+        {"label": "B", "teks": "Rp1.980.000,00"},
+        {"label": "C", "teks": "Rp1.000.000,00"},
+        {"label": "D", "teks": "Rp990.000,00"},
+        {"label": "E", "teks": "Rp900.000,00"}
+      ],
+      "pembahasan": "Keliling = πd = 22/7 × 35 = 110 cm = 1,1 m. Total = 180 × 1,1 × 5.000 = Rp990.000,00.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep keliling lingkaran dan konversi satuan cm ke m."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus K = πd dan penggunaan π = 22/7 untuk d = 35."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal keliling lingkaran ini?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh keliling lingkaran dengan d = 14."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi menghias pinggiran kue dengan pita."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung panjang pita satu alas piring?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung total keliling 180 buah dulu baru dikali harga? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat konversi cm ke m?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal keliling lingkaran kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal alas piring ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal keliling lingkaran."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal keliling lingkaran di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal keliling lingkaran."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 24,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait ukuran pemusatan dan penyebaran data tunggal dan data kelompok",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "berlatih",
+      "soal": "Perhatikan data pada tabel nilai hasil ulangan matematika kelas XI SMA Z. Modus dari data tersebut adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "64,0"},
+        {"label": "B", "teks": "64,5"},
+        {"label": "C", "teks": "65,0"},
+        {"label": "D", "teks": "65,5"},
+        {"label": "E", "teks": "66,0"}
+      ],
+      "pembahasan": "Memerlukan tabel distribusi frekuensi.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep modus data kelompok dan bedanya dengan modus data tunggal."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus modus data kelompok Mo = Tb + (d1/(d1+d2))×p."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk modus data kelompok?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh modus data tunggal dulu, lalu modus data kelompok sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi modus dengan ukuran sepatu yang paling banyak dibeli."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan kelas modus dari tabel frekuensi?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah diidentifikasi dari kelas dengan frekuensi tertinggi saja? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung modus data kelompok?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal modus data kelompok."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal modus ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal modus data kelompok."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal modus di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal modus."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 25,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret geometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "Titik ke-9",
+      "tahap_3b": "bertanding",
+      "soal": "Analisis Pembebanan Struktur Jembatan. Pada tiga titik tumpuan pertama, beban yang diaplikasikan secara berturut-turut adalah 500 kg, 1.000 kg, 2.000 kg. Standar Keamanan Bangunan menetapkan bahwa beton pracetak tersebut akan mengalami retak struktur jika diberi beban tunggal yang melampaui 128 ton pada satu titik. Pada titik tumpuan ke-berapakah beban yang diberikan untuk pertama kalinya mencapai batas keamanan struktur?",
+      "pilihan": [
+        {"label": "A", "teks": "Titik ke-7"},
+        {"label": "B", "teks": "Titik ke-8"},
+        {"label": "C", "teks": "Titik ke-9"},
+        {"label": "D", "teks": "Titik ke-10"},
+        {"label": "E", "teks": "Titik ke-11"}
+      ],
+      "pembahasan": "Un = 500 × 2^(n-1). 128 ton = 128.000 kg. 500 × 2^(n-1) = 128.000. 2^(n-1) = 256. n-1 = 8. n = 9.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep barisan geometri untuk mencari titik ke-n yang melampaui batas."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus Un = a × r^(n-1) dan konversi ton ke kg."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal barisan geometri dengan batas?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh mencari suku ke-n dari barisan geometri sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi barisan geometri dengan lipatan kertas yang menebal."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menyusun persamaan 500 × 2^(n-1) = 128.000?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dilanjutkan manual: 4000, 8000, ... sampai 128.000? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menyelesaikan 2^(n-1)?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal barisan geometri dengan batas."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal titik tumpuan ke-9 ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal barisan geometri dengan batas."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal barisan geometri batas di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal barisan geometri batas."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 26,
+      "elemen": "Aljabar",
+      "sub_elemen": "Persamaan dan Pertidaksamaan Linear",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait program linear",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": ["Pernyataan 2", "Pernyataan 4"],
+      "tahap_3b": "bertanding",
+      "soal": "Sebuah perusahaan mebel 'Awet' memproduksi dua jenis produk yaitu meja dan kursi. Total kayu yang tersedia setiap harinya terbatas, yaitu maksimal 20 m² per hari dan total waktu yang tersedia adalah maksimal 48 jam per hari. Keuntungan bersih dari penjualan 1 unit meja adalah Rp500.000,00 dan keuntungan bersih dari penjualan 1 unit kursi adalah Rp300.000,00. Berdasarkan kondisi tersebut, manakah pernyataan yang benar mengenai banyak meja dan kursi yang dapat diproduksi serta keuntungan yang diperoleh?",
+      "pernyataan": [
+        {"no": 1, "teks": "Mebel tidak dapat memproduksi 6 unit meja dan 5 unit kursi secara bersamaan.", "benar": false},
+        {"no": 2, "teks": "Jika mebel hanya memproduksi kursi, jumlah maksimum yang dapat dihasilkan adalah 16 unit.", "benar": true},
+        {"no": 3, "teks": "Memproduksi 2 meja dan 10 kursi menghasilkan keuntungan yang lebih besar daripada memproduksi 8 meja saja.", "benar": false},
+        {"no": 4, "teks": "Keuntungan maksimum yang diperoleh adalah sebesar Rp5.400.000,00.", "benar": true}
+      ],
+      "pembahasan": "Memerlukan analisis program linear.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep program linear dengan konteks produksi mebel ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menyusun fungsi kendala dan fungsi tujuan dari soal mebel."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk program linear?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh program linear sederhana dengan 2 kendala."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi program linear dengan pengaturan produksi usaha kecil."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menyusun kendala kayu dan waktu?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah diselesaikan dengan uji titik sudut? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menyelesaikan program linear?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal program linear kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal mebel Awet ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal program linear PGK MCMA."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan 1 dan 3 keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal program linear di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal program linear."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 27,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Objek Geometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait jarak dua objek geometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Perhatikan kubus PQRS.TUVW berikut! Panjang rusuk kubus tersebut 12 cm. Pada gambar terlihat bahwa titik O berada tepat pada perpotongan diagonal garis PR dan QS. Jarak titik V ke O adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "6√2 cm"},
+        {"label": "B", "teks": "6√3 cm"},
+        {"label": "C", "teks": "6√6 cm"},
+        {"label": "D", "teks": "12√2 cm"},
+        {"label": "E", "teks": "12√3 cm"}
+      ],
+      "pembahasan": "O pusat bidang PQRS. Jarak V ke O = √(12² + (6√2)²) = √216 = 6√6 cm.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep jarak titik ke titik dalam ruang kubus."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan Teorema Pythagoras untuk jarak titik V ke O dalam ruang."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk jarak dalam ruang?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh jarak titik ke titik pada kubus dengan rusuk kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi jarak dalam ruang dengan ruangan kamar dan sudutnya."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan posisi O dan panjang VO?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah digunakan koordinat kartesius? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung jarak dalam ruang?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal jarak titik dalam ruang."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal jarak VO ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal jarak dalam ruang."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal jarak ruang di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal jarak ruang."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 28,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Peluang",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait peluang suatu kejadian majemuk",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Sekolah P akan mengirim 2 perwakilan grup band untuk Pentas Musik Nusantara pada peringatan Hari Sumpah Pemuda. Sekolah tersebut memiliki 6 grup band putra dan 4 grup band putri. Berdasarkan penilaian, kemampuan grup band tersebut merata sehingga penentuan kedua perwakilan grup band dilakukan dengan cara mengambil secara acak satu persatu. Peluang terambil grup band putra pada pengambilan pertama dan grup band putri pada pengambilan kedua adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "1/5"},
+        {"label": "B", "teks": "2/5"},
+        {"label": "C", "teks": "4/15"},
+        {"label": "D", "teks": "3/10"},
+        {"label": "E", "teks": "2/15"}
+      ],
+      "pembahasan": "P = 6/10 × 4/9 = 24/90 = 4/15.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep peluang dua kejadian berurutan tanpa pengembalian."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan aturan perkalian peluang P(A) × P(B|A)."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk peluang berurutan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh peluang mengambil 2 bola berurutan dari kantong."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi peluang berurutan dengan pengambilan kartu."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung peluang pengambilan pertama dan kedua?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah pakai kombinasi? Bandingkan dengan aturan perkalian."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung peluang berurutan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal peluang berurutan tanpa pengembalian."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal grup band ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal peluang berurutan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal peluang berurutan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal peluang berurutan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 29,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Pengukuran",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait volume dan luas permukaan bangun ruang",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "A",
+      "tahap_3b": "bertanding",
+      "soal": "Pada tahun 2025, sebuah perusahaan keju memproduksi dua jenis keju kemasan berbentuk gabungan bangun ruang. Karena permintaan pasar meningkat, manajer produksi mengusulkan aturan baru: 'Mulai bulan Januari tahun depan, setiap kemasan akan diisi menjadi 75% volumenya tanpa mengubah ukuran kemasan'. Pada bulan Maret 2026, sebuah supermarket memesan 150 keju kemasan A dan 200 keju kemasan B. Apabila adonan keju yang tersedia adalah 220 liter, apakah usulan manajer produksi tersebut dapat diterapkan untuk memenuhi seluruh pesanan?",
+      "pilihan": [
+        {"label": "A", "teks": "Usulan tersebut tepat, karena meskipun aturan pengisian berubah, kebutuhan adonan tetap kurang dari 220 liter sehingga persediaan masih mencukupi."},
+        {"label": "B", "teks": "Usulan tersebut tepat, karena penurunan volume hanya terjadi pada Keju Kemasan A sehingga tidak memengaruhi kecukupan persediaan secara keseluruhan."},
+        {"label": "C", "teks": "Usulan tersebut kurang tepat, karena peningkatan aturan pengisian menyebabkan kebutuhan adonan bertambah, tetapi persediaan 220 liter masih mencukupi."},
+        {"label": "D", "teks": "Usulan tersebut tidak tepat, karena peningkatan pengisian pada kedua jenis kemasan menyebabkan kebutuhan adonan melebihi 220 liter."},
+        {"label": "E", "teks": "Usulan tersebut tidak tepat, karena perubahan aturan pengisian tidak memengaruhi kebutuhan adonan, melainkan hanya mengubah bentuk kemasan."}
+      ],
+      "pembahasan": "Memerlukan analisis volume kemasan A dan B.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep volume gabungan bangun ruang dan pengaruh perubahan persentase pengisian."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus volume tabung, kerucut, dan gabungannya."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal volume gabungan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh volume gabungan tabung dan kerucut dengan angka sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi pengisian sebagian dengan mengisi gelas setengah penuh."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung kebutuhan adonan untuk 150 kemasan A dan 200 kemasan B?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung volume satu kemasan dulu lalu dikali jumlah? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung volume gabungan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal volume gabungan kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal keju kemasan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal volume gabungan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan B, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal volume gabungan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal volume gabungan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 30,
+      "elemen": "Aljabar",
+      "sub_elemen": "Barisan dan Deret",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait barisan dan deret geometri",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": ["Pernyataan 1", "Pernyataan 4"],
+      "tahap_3b": "bertanding",
+      "soal": "Analisis Pembebanan Struktur Jembatan. Konsultan pengawas ingin menghitung total akumulasi beban (tonase total) yang ditahan oleh jembatan selama pengujian di 5 hingga 7 titik tumpuan pertama. Tim logistik kemudian menyiapkan beban statis seberat 32 ton. Pilihlah semua pernyataan yang benar terkait dengan tonase total dan persediaan beban statis tersebut.",
+      "pernyataan": [
+        {"no": 1, "teks": "Beban statis yang disediakan tim logistik cukup untuk pengujian tonase hingga titik tumpuan ke-6.", "benar": true},
+        {"no": 2, "teks": "Diperlukan tambahan beban statis sebesar 30 ton apabila pengujian tonase dilakukan hingga titik tumpuan ke-7.", "benar": false},
+        {"no": 3, "teks": "Terdapat sisa beban sebesar 15,5 ton setelah proses alokasi pengujian tonase hingga titik tumpuan ke-5 selesai.", "benar": false},
+        {"no": 4, "teks": "Beton melewati batas beban setelah titik tumpuan ke-5 saat batas elastisitas kumulatif beton pracetak adalah 20 ton.", "benar": true}
+      ],
+      "pembahasan": "Perlu analisis deret geometri.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep deret geometri untuk menghitung akumulasi beban."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus Sn = a(r^n - 1)/(r-1) untuk deret geometri."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk deret geometri?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh deret geometri sederhana dengan angka kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi deret geometri dengan tabungan berbunga majemuk."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung total tonase 5-7 titik tumpuan?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung satu-satu dari suku ke-5 sampai ke-7? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung deret geometri?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal deret geometri kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal akumulasi beban jembatan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal deret geometri PGK MCMA."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan 2 dan 3 keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal deret geometri di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal deret geometri."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 31,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Penyajian Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait penyajian data dalam bentuk diagram batang, diagram garis, diagram lingkaran, grafik, tabel, dan bentuk visual",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Salah", "Benar", "Benar"],
+      "tahap_3b": "bertanding",
+      "soal": "Manajer pemasaran sebuah biro perjalanan di Pulau Wisata Numerasi sedang merancang strategi promosi. Ia menggunakan dua data: Tabel Aktivitas Favorit berdasarkan Negara Asal. Australia: 80% Wisata Budaya dan 20% Berselancar dan Pantai. China: 40% Belanja dan 60% Wisata Kuliner. Malaysia: 90% Perawatan Tubuh dan 10% Wisata Budaya. Jepang: 70% Wisata Kuliner dan 30% Belanja. Berdasarkan data yang diberikan, bagaimana potensi jumlah wisatawan pada biro perjalanan tersebut?",
+      "pernyataan": [
+        {"no": "A", "teks": "Peningkatan iklan Berselancar untuk wisatawan Australia berpotensi mendatangkan volume wisatawan lebih besar daripada iklan Wisata Kuliner untuk wisatawan Jepang.", "benar": false},
+        {"no": "B", "teks": "Target pasar wisatawan Perawatan Tubuh asal Malaysia lebih besar dibandingkan wisatawan Kuliner asal China.", "benar": true},
+        {"no": "C", "teks": "Potensi wisatawan Belanja asal Jepang lebih kecil dibandingkan potensi wisatawan Belanja asal China.", "benar": true}
+      ],
+      "pembahasan": "Perlu analisis data dan perbandingan.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan cara membaca tabel data aktivitas favorit wisatawan."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara membandingkan persentase antar negara asal."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk analisis data tabel?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh tabel sederhana dan cara membandingkan persentase."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi membandingkan preferensi dengan survei makanan favorit."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana membandingkan potensi wisatawan dari dua negara?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibuat tabel perbandingan persentase? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat membandingkan data persentase?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal analisis tabel data."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal biro perjalanan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal PGK Kategori data."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan A salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal data tabel di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal data tabel."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 32,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait ukuran pemusatan dan penyebaran data tunggal dan data kelompok",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "A",
+      "tahap_3b": "bertanding",
+      "soal": "Perusahaan Kertas 'Mayang' sedang merapikan data gaji bulanan karyawan tahun 2025. Namun, data pada salah satu rentang gaji tidak terbaca. Diketahui bahwa modus gaji karyawan di Perusahaan Kertas 'Mayang' adalah Rp15.750.000,00. Berapakah nilai data yang tidak terbaca tersebut?",
+      "pilihan": [
+        {"label": "A", "teks": "6"},
+        {"label": "B", "teks": "14"},
+        {"label": "C", "teks": "20"},
+        {"label": "D", "teks": "21"},
+        {"label": "E", "teks": "28"}
+      ],
+      "pembahasan": "Memerlukan tabel distribusi frekuensi.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep modus data kelompok dan cara menentukan kelas modus dari tabel frekuensi."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus modus data kelompok dan penerapannya untuk mencari frekuensi yang hilang."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk modus data kelompok?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh mencari modus data tunggal dulu."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi modus dengan data penjualan terlaris."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan kelas modus dari modus yang diketahui?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dicoba substitusi tiap pilihan? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat mencari frekuensi hilang dari modus?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal modus data kelompok dengan data hilang."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal gaji karyawan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal modus data hilang."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan B, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal modus data hilang di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal modus data hilang."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 33,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Peluang Kejadian Tunggal",
+      "kompetensi": "Data dan Peluang",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "bertanding",
+      "soal": "Dalam sebuah acara pameran wisata internasional, panitia menyediakan doorprize. Pengunjung yang berkesempatan adalah 40 pengunjung pertama. Kupon doorprize: 5 tiket gratis pp Jakarta-Kuala Lumpur, 5 tiket gratis pp Jakarta-Bangkok, 10 voucher menginap 3 malam di hotel bintang lima, 10 voucher menginap 3 malam di hotel bintang empat, 10 voucher kosong. Anto adalah orang ke-6 yang berkesempatan mengambil hadiah doorprize. Diketahui bahwa 1 tiket pp Jakarta-Kuala Lumpur, 1 tiket pp Jakarta-Bangkok, dan 2 voucher menginap di hotel bintang empat sudah terambil. Adapun satu orang lainnya gagal mendapatkan doorprize. Berapa peluang Anto mendapatkan tiket gratis pp Jakarta-Kuala Lumpur?",
+      "pilihan": [
+        {"label": "A", "teks": "1/10"},
+        {"label": "B", "teks": "4/35"},
+        {"label": "C", "teks": "1/7"},
+        {"label": "D", "teks": "4/33"},
+        {"label": "E", "teks": "1/5"}
+      ],
+      "pembahasan": "Sisa tiket Jakarta-Kuala Lumpur = 4. Total kupon tersisa = 40 - 5 = 35. P = 4/35.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep peluang dengan pengambilan tanpa pengembalian pada konteks doorprize ini."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus P(A) = n(A)/n(S) untuk soal doorprize ini."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal peluang doorprize?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh peluang mengambil bola dari kantong yang sudah berkurang."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi doorprize dengan undian berhadiah."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung sisa kupon dan sisa tiket Jakarta-Kuala Lumpur?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah pakai tabel sisa kupon? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung sisa kupon?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal peluang tanpa pengembalian."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal doorprize ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal peluang tanpa pengembalian."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal peluang tanpa pengembalian di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal peluang tanpa pengembalian."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 34,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Geometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait hubungan objek geometri pada bangun datar dan bangun ruang",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Benar", "Benar", "Salah"],
+      "tahap_3b": "berlatih",
+      "soal": "Diketahui kubus ABCDEFGH seperti pada gambar. Bagaimana hubungan antara setiap rusuk atau setiap garis yang menghubungkan dua titik pada sudut tersebut?",
+      "pernyataan": [
+        {"no": "A", "teks": "AD tegak lurus FG", "benar": true},
+        {"no": "B", "teks": "BC sejajar EH", "benar": true},
+        {"no": "C", "teks": "EF memotong CG", "benar": false}
+      ],
+      "pembahasan": "Analisis hubungan garis pada kubus.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep hubungan antar garis pada kubus: sejajar, tegak lurus, memotong."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menentukan hubungan dua rusuk kubus berdasarkan posisinya."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk hubungan garis pada kubus?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh hubungan dua rusuk pada kubus dengan nama berbeda."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi hubungan garis dengan kerangka ruangan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan kedudukan AD terhadap FG?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah digunakan vektor arah? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menentukan hubungan garis ruang?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal hubungan garis pada kubus."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal hubungan rusuk kubus ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal hubungan garis ruang."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan C salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal hubungan garis ruang di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal hubungan garis ruang."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 35,
+      "elemen": "Bilangan",
+      "sub_elemen": "Bilangan Real",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait operasi bilangan beserta sifat-sifatnya",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "berlatih",
+      "soal": "Soal operasi bilangan (memerlukan gambar/konteks spesifik).",
+      "pilihan": [
+        {"label": "A", "teks": "Pilihan A"},
+        {"label": "B", "teks": "Pilihan B"},
+        {"label": "C", "teks": "Pilihan C"},
+        {"label": "D", "teks": "Pilihan D"},
+        {"label": "E", "teks": "Pilihan E"}
+      ],
+      "pembahasan": "Memerlukan detail soal.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep operasi bilangan dan sifat-sifatnya."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan sifat komutatif, asosiatif, dan distributif dengan contoh."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk operasi bilangan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh operasi bilangan sederhana dengan sifat distributif."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi sifat distributif dengan membagi belanja."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menyederhanakan operasi bilangan pada soal ini?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah digunakan sifat distributif dulu? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat operasi bilangan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal operasi bilangan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal operasi bilangan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal operasi bilangan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal operasi bilangan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal operasi bilangan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 36,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait penyajian data",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "E",
+      "tahap_3b": "berlatih",
+      "soal": "Amel memiliki toko bunga. Amel selalu mencatat hasil penjualannya. Hasil penjualannya digunakan untuk bahan evaluasi dan pertimbangan saat membeli bunga. Berikut disajikan data mengenai keuntungan dari penjualan bunga dari bulan Januari sampai Juli 2025. Berdasarkan data tersebut, keuntungan pada bulan manakah yang mengalami penurunan signifikan?",
+      "pilihan": [
+        {"label": "A", "teks": "Februari"},
+        {"label": "B", "teks": "Maret"},
+        {"label": "C", "teks": "April"},
+        {"label": "D", "teks": "Mei"},
+        {"label": "E", "teks": "Juni"}
+      ],
+      "pembahasan": "Memerlukan diagram garis.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan cara membaca diagram garis dan mengenali penurunan signifikan."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menghitung selisih antar bulan berurutan."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk membaca diagram garis?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh diagram garis sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi diagram garis dengan grafik suhu harian."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana membandingkan penurunan antar bulan?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibuat tabel selisih dulu? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat membaca diagram garis?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal membaca diagram garis."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal penjualan bunga ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat membaca diagram garis."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, D keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal diagram garis di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal diagram garis."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 37,
+      "elemen": "Aljabar",
+      "sub_elemen": "Program Linear",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait program linear",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Salah", "Salah", "Benar"],
+      "tahap_3b": "bertanding",
+      "soal": "Mirna akan memproduksi dua jenis kue dengan modal Rp8.000.000,00. Biaya produksi kue bolu sebesar Rp15.000,00 per kotak dan dijual dengan laba 40%. Sedangkan biaya produksi kue brownies sebesar Rp20.000,00 per kotak dan dijual dengan laba 35%. Setiap harinya, Mirna dapat memproduksi paling banyak 500 kotak kue. Apabila Mirna ingin memperoleh keuntungan maksimum, tentukan Benar atau Salah untuk setiap pernyataan berikut!",
+      "pernyataan": [
+        {"no": "A", "teks": "Mirna harus memproduksi 200 kotak kue bolu.", "benar": false},
+        {"no": "B", "teks": "Mirna harus memproduksi kue brownies lebih banyak.", "benar": false},
+        {"no": "C", "teks": "Keuntungan maksimum yang dapat diperoleh Mirna adalah Rp3.100.000,00.", "benar": true}
+      ],
+      "pembahasan": "Perlu analisis program linear dengan kendala modal dan kapasitas.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep program linear dengan kendala modal dan kapasitas produksi."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menyusun fungsi tujuan laba dan fungsi kendala."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk program linear kontekstual?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh program linear dengan 2 kendala sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi program linear dengan produksi kue rumahan."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung laba per kotak kue bolu dan brownies?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah diuji titik sudut daerah layak? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung laba program linear?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal program linear kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kue Mirna ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal program linear PGK Kategori."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan A dan B salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal program linear di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal program linear."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 38,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Pengukuran",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait keliling dan luas bangun datar",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "220 m²",
+      "tahap_3b": "bertanding",
+      "soal": "Desain jendela kaca dari sebuah komplek perumahan (cluster) yang akan segera dibangun beserta ukurannya diberikan pada gambar berikut. Pihak pengembang konstruksi berencana akan membangun 20 rumah di dalam komplek tersebut. Setiap rumah memiliki satu desain jendela seperti pada gambar. Berdasarkan jumlah rumah dan desain jendela yang akan dibangun, maka total luas kebutuhan kaca yang harus dipersiapkan pihak pengembang adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "44 m²"},
+        {"label": "B", "teks": "88 m²"},
+        {"label": "C", "teks": "110 m²"},
+        {"label": "D", "teks": "220 m²"},
+        {"label": "E", "teks": "440 m²"}
+      ],
+      "pembahasan": "Luas satu jendela × 20 rumah = 220 m².",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep luas gabungan bangun datar pada desain jendela."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus luas persegi, persegi panjang, dan gabungannya."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk luas bangun datar gabungan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh luas gabungan persegi dan segitiga."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi luas jendela dengan pemasangan kaca rumah."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana memecah desain jendela menjadi bangun-bangun sederhana?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung luas keseluruhan lalu dikurangi bagian kosong? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung luas gabungan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal luas gabungan kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal jendela kaca ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal luas gabungan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, C, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal luas gabungan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal luas gabungan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 39,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Objek Geometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait hubungan dua sudut, dua garis, dan dua bidang",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Benar", "Benar", "Salah"],
+      "tahap_3b": "bertanding",
+      "soal": "Tentukan Benar atau Salah untuk setiap pernyataan berikut terkait dengan besar sudut pada trapesium ABCD!",
+      "pernyataan": [
+        {"no": "A", "teks": "Pernyataan A", "benar": true},
+        {"no": "B", "teks": "Pernyataan B", "benar": true},
+        {"no": "C", "teks": "Pernyataan C", "benar": false}
+      ],
+      "pembahasan": "Memerlukan gambar trapesium.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan sifat-sifat sudut pada trapesium."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan hubungan sudut sepihak dan sudut dalam trapesium."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk sudut pada segi empat?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh menghitung sudut pada trapesium sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi sudut pada trapesium dengan bentuk atap rumah."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan hubungan sudut pada trapesium?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah digunakan jumlah sudut segi empat = 360°? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung sudut trapesium?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal sudut pada trapesium."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal sudut trapesium ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal sudut segi empat."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan C salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal sudut segi empat di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal sudut segi empat."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 40,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Pengukuran",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait keliling dan luas bangun datar",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "B",
+      "tahap_3b": "bertanding",
+      "soal": "Putuskan apakah dengan tambahan informasi Pernyataan (1) dan Pernyataan (2) berikut cukup untuk menjawab pertanyaan tersebut! (1) Luas trapesium ABCD = 24. (2) BC = 10 dan CD = 5.",
+      "pilihan": [
+        {"label": "A", "teks": "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi Pernyataan (2) SAJA tidak cukup."},
+        {"label": "B", "teks": "Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi Pernyataan (1) SAJA tidak cukup."},
+        {"label": "C", "teks": "DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup."},
+        {"label": "D", "teks": "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan dan Pernyataan (2) SAJA cukup."},
+        {"label": "E", "teks": "Pernyataan (1) dan Pernyataan (2) tidak cukup untuk menjawab pertanyaan."}
+      ],
+      "pembahasan": "Memerlukan analisis kecukupan data.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep kecukupan data (data sufficiency) dalam soal matematika."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menganalisis kecukupan pernyataan (1) dan (2) secara terpisah."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk soal kecukupan data?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh soal kecukupan data yang lebih sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi kecukupan data dengan menentukan umur seseorang dari petunjuk."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menguji kecukupan pernyataan (1) dan (2) secara terpisah?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibuat tabel kemungkinan? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menjawab soal kecukupan data?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal kecukupan data."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kecukupan data trapesium ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal kecukupan data."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal kecukupan data di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal kecukupan data."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 41,
+      "elemen": "Trigonometri",
+      "sub_elemen": "Perbandingan Trigonometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait perbandingan trigonometri",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "berlatih",
+      "soal": "Suatu tangga dengan panjang 6 meter disandarkan pada dinding vertikal. Sudut yang dibentuk tangga dengan lantai adalah 60°. Tinggi dinding yang disentuh ujung atas tangga adalah ....",
+      "pilihan": [
+        {"label": "A", "teks": "3 meter"},
+        {"label": "B", "teks": "3√2 meter"},
+        {"label": "C", "teks": "3√3 meter"},
+        {"label": "D", "teks": "4√2 meter"},
+        {"label": "E", "teks": "4√3 meter"}
+      ],
+      "pembahasan": "sin 60° = t/6 → t = 6 × √3/2 = 3√3 meter.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep perbandingan trigonometri pada segitiga siku-siku dengan konteks tangga."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus sin, cos, tan pada segitiga siku-siku."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk perbandingan trigonometri?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh mencari tinggi tiang dengan sudut 30°."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi trigonometri dengan mengukur tinggi pohon."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: sisi mana yang diketahui dan sisi mana yang dicari?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah pakai tan 60°? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat memilih sin/cos/tan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal trigonometri kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal tangga ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal trigonometri kontekstual."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal trigonometri di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal trigonometri."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 42,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Data",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait ukuran pemusatan dan penyebaran data tunggal dan data kelompok",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": ["Pernyataan 1", "Pernyataan 2", "Pernyataan 3", "Pernyataan 4"],
+      "tahap_3b": "bertanding",
+      "soal": "Rata-rata nilai ulangan 17 murid dari skala 100 adalah 83. Ada 3 murid yang mengikuti ujian susulan sehingga rata-rata nilai ulangan dari 20 murid menjadi 82. Tentukan semua pernyataan berikut yang benar terkait dengan nilai ketiga murid yang mengikuti ujian susulan!",
+      "pernyataan": [
+        {"no": 1, "teks": "Jumlah nilai ketiga murid yang mengikuti ujian susulan adalah 229.", "benar": true},
+        {"no": 2, "teks": "Rata-rata nilai ketiga murid yang mengikuti ujian susulan lebih dari 70.", "benar": true},
+        {"no": 3, "teks": "Nilai terendah dari ketiga murid yang mengikuti ujian susulan tidak kurang dari 29.", "benar": true},
+        {"no": 4, "teks": "Nilai tertinggi dari ketiga murid yang mengikuti ujian susulan lebih dari 76.", "benar": true},
+        {"no": 5, "teks": "Jangkauan data nilai ketiga murid yang mengikuti ujian susulan lebih dari 72.", "benar": false}
+      ],
+      "pembahasan": "Jumlah nilai 17 murid = 1411. Jumlah nilai 20 murid = 1640. Jumlah 3 murid = 229. Rata-rata = 76,33.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep rata-rata gabungan dan cara mencari jumlah nilai kelompok baru."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus rata-rata = jumlah nilai / banyak data."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk rata-rata gabungan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh rata-rata gabungan dengan angka kecil."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi rata-rata gabungan dengan nilai ulangan kelas."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana mencari jumlah nilai 3 murid susulan?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibuat tabel nilai? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung rata-rata gabungan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal rata-rata gabungan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal nilai ulangan susulan ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal rata-rata gabungan PGK MCMA."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan 5 keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal rata-rata di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal rata-rata gabungan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 43,
+      "elemen": "Aljabar",
+      "sub_elemen": "Fungsi",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait domain, kodomain, range, dan representasi fungsi linear, kuadrat, dan rasional",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Benar", "Salah", "Benar"],
+      "tahap_3b": "bertanding",
+      "soal": "Fungsi didefinisikan oleh f(x) = ... Tentukan Benar atau Salah pada setiap pernyataan berikut yang terkait dengan grafik fungsi f!",
+      "pernyataan": [
+        {"no": "A", "teks": "Grafik fungsi f terbuka ke atas.", "benar": true},
+        {"no": "B", "teks": "Grafik fungsi f memotong garis ...", "benar": false},
+        {"no": "C", "teks": "Grafik fungsi f tidak melalui kuadran tiga.", "benar": true}
+      ],
+      "pembahasan": "Memerlukan fungsi spesifik.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep grafik fungsi kuadrat: arah buka, titik potong, dan posisi kuadran."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menentukan arah buka dari koefisien x²."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk grafik fungsi kuadrat?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh grafik f(x) = x² + 2x + 1."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi grafik fungsi dengan lintasan bola."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan titik potong sumbu y dari fungsi?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah disketsa grafik dulu? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menganalisis grafik fungsi kuadrat?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal analisis grafik fungsi kuadrat."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal grafik fungsi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal grafik fungsi PGK Kategori."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan B salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal grafik fungsi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal grafik fungsi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 44,
+      "elemen": "Aljabar",
+      "sub_elemen": "Fungsi",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait invers fungsi dan representasinya",
+      "bentuk_soal": "PGK MCMA",
+      "kunci": ["A", "B"],
+      "tahap_3b": "bertanding",
+      "soal": "Tagihan listrik bulanan di sebuah apartemen dihitung berdasarkan jumlah energi listrik (dalam kWh) yang digunakan. Biaya tagihan listrik dihitung dengan rumus: [rumus]. Andi merupakan salah satu penghuni apartemen tersebut yang menerima tagihan pembayaran listrik seperti terlihat pada gambar berikut. Dia menyadari bahwa penggunaan listrik sebulan terakhir lebih dari penggunaan listrik biasanya. Berdasarkan informasi tersebut, biasanya berapa besar penggunaan listrik di apartemen Andi?",
+      "pilihan": [
+        {"label": "A", "teks": "85 kWh"},
+        {"label": "B", "teks": "90 kWh"},
+        {"label": "C", "teks": "100 kWh"},
+        {"label": "D", "teks": "120 kWh"},
+        {"label": "E", "teks": "137 kWh"}
+      ],
+      "pembahasan": "Memerlukan rumus tagihan listrik dan gambar tagihan.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep fungsi invers pada konteks tagihan listrik."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara mencari nilai x dari f(x) jika f(x) diketahui."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk invers fungsi linear?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh invers fungsi linear sederhana."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi invers fungsi dengan konversi harga ke jumlah barang."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana mencari penggunaan listrik biasa dari tagihan?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dicoba substitusi tiap pilihan? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat mencari invers fungsi?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal invers fungsi kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal tagihan listrik Andi ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal invers fungsi kontekstual."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan C, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal invers fungsi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal invers fungsi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 45,
+      "elemen": "Geometri dan Pengukuran",
+      "sub_elemen": "Transformasi Geometri",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait transformasi geometri (translasi, refleksi, rotasi, dilatasi, dan komposisinya) dari titik",
+      "bentuk_soal": "PGK Kategori",
+      "kunci": ["Benar", "Benar", "Salah"],
+      "tahap_3b": "bertanding",
+      "soal": "Pak Andi akan mempresentasikan desain gedung berukuran 60 cm × 60 cm menggunakan proyektor ke layar berukuran 2,4 meter × 1,8 meter yang dipasang di depan ruang rapat (orientasi horizontal). Proyektor menghasilkan pembesaran proporsional tergantung jaraknya dari layar. Pak Andi menempatkan proyektor dengan jarak yang menghasilkan skala pembesaran seperti terlihat pada gambar berikut. Bagaimanakah tampilan desain gedung di layar?",
+      "pernyataan": [
+        {"no": "A", "teks": "Perbandingan ukuran tampilan desain di layar adalah 1 : 1.", "benar": true},
+        {"no": "B", "teks": "Ukuran panjang dan lebar tampilan desain pada layar adalah lebih dari 1 meter.", "benar": true},
+        {"no": "C", "teks": "Terdapat bagian gambar asli desain yang terpotong dalam tampilan pada layar.", "benar": false}
+      ],
+      "pembahasan": "Memerlukan analisis dilatasi dan rasio aspek layar.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep dilatasi pada transformasi geometri dengan konteks proyektor."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan cara menghitung faktor skala dari perbandingan ukuran."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk dilatasi?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh dilatasi persegi dengan faktor skala 2."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi dilatasi dengan zoom foto."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menentukan apakah gambar muat atau terpotong?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dibandingkan rasio aspek? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung dilatasi?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal dilatasi kontekstual."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal presentasi desain gedung ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal dilatasi PGK Kategori."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pernyataan C salah."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal dilatasi di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal dilatasi."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    },
+    {
+      "no_soal": 46,
+      "elemen": "Data dan Peluang",
+      "sub_elemen": "Aturan Pencacahan",
+      "kompetensi": "Memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait aturan pencacahan (aturan penjumlahan, aturan perkalian, permutasi, dan kombinasi)",
+      "bentuk_soal": "Pilihan Ganda (PG)",
+      "kunci": "C",
+      "tahap_3b": "bertanding",
+      "soal": "Luki adalah panitia bazar di sekolahnya. Dia mendapat tugas dari ketua pelaksana untuk membuat kupon. Dia ingin di setiap kupon memiliki kode akses yang unik. Kode akses kupon bazar itu memiliki lima karakter dengan format sebagai berikut: dengan A, B, dan C menyatakan huruf, serta X dan Y menyatakan angka. Tidak boleh ada angka dan huruf yang diulang. Berapakah berapa banyak kode akses berbeda yang dapat dibuat?",
+      "pilihan": [
+        {"label": "A", "teks": "1.263.600"},
+        {"label": "B", "teks": "1.352.000"},
+        {"label": "C", "teks": "1.404.000"},
+        {"label": "D", "teks": "1.423.656"},
+        {"label": "E", "teks": "1.757.600"}
+      ],
+      "pembahasan": "26 × 25 × 24 × 10 × 9 = 1.404.000.",
+      "ai_prompts": {
+        "belajar": [
+          {"id": "B1", "label": "Konsep dasar", "prompt": "Jelaskan konsep aturan perkalian dan permutasi tanpa pengulangan pada pembuatan kode."},
+          {"id": "B2", "label": "Rumus yang dipakai", "prompt": "Jelaskan rumus permutasi P(n,r) dan aturan perkalian."},
+          {"id": "B3", "label": "Materi prasyarat", "prompt": "Materi prasyarat untuk aturan pencacahan?"},
+          {"id": "B4", "label": "Contoh lebih sederhana", "prompt": "Beri contoh kode 3 karakter tanpa pengulangan."},
+          {"id": "B5", "label": "Analogi sehari-hari", "prompt": "Beri analogi aturan pencacahan dengan membuat PIN ATM."}
+        ],
+        "berlatih": [
+          {"id": "L1", "label": "Petunjuk langkah awal", "prompt": "Beri petunjuk: bagaimana menghitung banyak pilihan tiap posisi?"},
+          {"id": "L2", "label": "Periksa jawaban saya", "prompt": "Jawaban saya [X]. Apakah benar?", "butuh_input": true},
+          {"id": "L3", "label": "Bagian yang membingungkan", "prompt": "Saya bingung di bagian [deskripsi].", "butuh_input": true},
+          {"id": "L4", "label": "Cara alternatif", "prompt": "Bisakah dihitung dengan permutasi P(26,3) × P(10,2)? Bandingkan."},
+          {"id": "L5", "label": "Kesalahan yang sering terjadi", "prompt": "Kesalahan umum saat menghitung kode tanpa pengulangan?"},
+          {"id": "L6", "label": "Latihan tambahan", "prompt": "Buatkan 2 soal aturan pencacahan."}
+        ],
+        "bertanding": [
+          {"id": "T1", "label": "Pembahasan lengkap", "prompt": "Pembahasan lengkap soal kode akses kupon ini."},
+          {"id": "T2", "label": "Strategi waktu", "prompt": "Strategi cepat soal aturan pencacahan."},
+          {"id": "T3", "label": "Bedah pilihan salah", "prompt": "Jelaskan mengapa pilihan A, B, D, E keliru."},
+          {"id": "T4", "label": "Level soal", "prompt": "Level kognitif soal ini?"},
+          {"id": "T5", "label": "Bandingkan soal sejenis", "prompt": "Pola soal aturan pencacahan di TKA."},
+          {"id": "T6", "label": "Prediksi variasi soal", "prompt": "Prediksi variasi soal aturan pencacahan."},
+          {"id": "T7", "label": "Rencana perbaikan", "prompt": "Rencana belajar jika salah."},
+          {"id": "T8", "label": "Penjelasan bergaya kelas", "prompt": "Jelaskan interaktif seperti di kelas."}
+        ]
+      }
+    }
+  ]
+}
